@@ -38,12 +38,19 @@ All can be installed using pip :
 !pip install wikipedia setuptools pywikibot mwparserfromhell pandas numpy scipy nltk tqdm seaborn pyqt5 pyqtwebengine ruamel-yaml lxml
 ```
 ## Run the Project
-The project is contained in a .ipynb file which corresponds to a python notebook file. The code is designed to be run using the cells' logic of a notebook. [Jupyter](https://jupyter.org/) is an example of a free notebook you can use.
+The project has two ways of working at the moment - notebook or pure python:
+
+1. (ipynb) The project is contained in a .ipynb file which corresponds to a python notebook file. The code is designed to be run using the cells' logic of a notebook. [Jupyter](https://jupyter.org/) is an example of a free notebook you can use.
 To create the corpus first launch *corpus creation and name of journal analysis* notebook. Then to compare corpora you can launch the *poster figures* notebook. 
 If you want to have the history on one article using wikicode manually found you can look at the branch history.
 The *wikipediaAnalysishistory* notebook is made based on Leo Blondel code that you can find in this gitlab: https://gitlab.com/xqua/wikipedia-data-collector/-/tree/main 
 This notebook is a modification of the notebook *WikipediaAnalysisDemo* with the extraction of the name of the citation to make it work yu firstly need to run the code on Leo Blondel's Github.
 
+2) (python) just run the command 
+   >> python3 corpus_creation.py -term 'circadian clock' 
+
+   or use the file starter.sh which can be run more easily (edit it with text editor then run it)
+   
 # How to Use the Project
 
 ## Corpus Selection 
