@@ -7,8 +7,14 @@ tqdm.pandas()
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+# todo: rethink logging in these functions
 
-def get_protection_status(data, logger):
+
+def get_protection_status(data, logger=None):
+    if not logger:
+        import logging
+        logger = logging.getLogger('Wikiscore-simple-logger')
+
     logger.info('getting protection status')
 
     years_off = []

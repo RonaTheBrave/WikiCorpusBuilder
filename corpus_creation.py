@@ -169,11 +169,10 @@ def crea_dataframe(search_list: list, keyword: str) -> pd.DataFrame:
     df = pd.DataFrame.from_dict(tableau)
     return df
 
-def pimp_df(df):
+def parse_df_citations(df):
     logger.info('collecting and parsing citations')
     df['citations'] = df['text'].progress_apply(lambda x: get_citations(x))
 
-    print("getting the number of references")
     df['Ref count'] = df['citations'].progress_apply(lambda x: x['Ref count'])
 
     df['nb_journal_citations'] = df['citations'].progress_apply(lambda x: x['nb_journal_citations'])  # number of scientific citations
@@ -188,7 +187,6 @@ def pimp_df(df):
     df["citationgovtext"] = df['citations'].progress_apply(lambda x: x["citationgovtext"])
     df["citation IPCC"] = df['citations'].progress_apply(lambda x: x["citationsIPCC.ch"])  # number of IPCC citations
 
-    print("getting the .com citations")
     df["citation com"] = df['citations'].progress_apply(lambda x: x["citations.com"]) # number of .com citations
     df["citationcomtext"] = df['citations'].progress_apply(lambda x: x["citationcomtext"])
 
@@ -306,7 +304,7 @@ if __name__ == '__main__':
 
     protection_status_evolution = get_protection_status(search_list, logger)
     df = crea_dataframe(search_list, args['term'])
-    df = pimp_df(df)
+    df = parse_df_citations(df)
     logger.info(f'mean scietificness score {df["nbjournaldetected"].sum()/df["nb_journal_citations"].sum()}')
 
     urls = get_modified_urls(df["Name only"]) #make a list will all titles
