@@ -263,6 +263,7 @@ def clean_df(df):
 
     # Cleaning the creator
     df["Creator"] = df["Creator"].str.replace(r"\(.*\)", '', regex=True)
+    del df['text']
     return df
 
 
