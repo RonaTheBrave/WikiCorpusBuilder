@@ -76,6 +76,7 @@ def corpus_selection(word_keys: str, number_of_results: int, key_for_section: st
     proper_list = []
     left_list = []
     search_list, nbr_result= get_all_the_bloody_titles(word_keys)
+    logger.info(f'total search results {len(search_list)}')
     # Select and put in a list number_of_results wikipedia articles related to word_keys
 
     for article in tqdm(search_list):
@@ -90,13 +91,13 @@ def corpus_selection(word_keys: str, number_of_results: int, key_for_section: st
                 proper_list.append(article)
             except wikipedia.exceptions.PageError as e:
                 pass
-
+    logger.info(f'proper search results {len(proper_list)}')
     for proper_article in tqdm(proper_list):
         if key_for_section in proper_article.lower():  # Among these articles, select the ones whose title contains key_for_selection for the corpus
             corpus.append(proper_article)
         else:
             left_list.append(proper_article)  # Put the rest of the articles in a list
-
+    logger.info(f'title has search key in  {len(corpus)}')
     for left_article in tqdm(left_list):
         sec_tit = []
         try:
