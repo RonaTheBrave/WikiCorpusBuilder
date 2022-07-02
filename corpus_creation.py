@@ -32,7 +32,7 @@ def get_all_the_bloody_titles(key_words: str) -> (list, int):
     scraped_url = 'https://en.wikipedia.org/w/index.php?title=Special:Search&limit=5000&offset=0&profile=default&search={}&ns0=1'.format(
         a)
     html_text = requests.get(scraped_url).text
-    soup = BeautifulSoup(html_text, 'lxml')
+    soup = BeautifulSoup(html_text, features='lxml')
     r = soup.find('div', {'class': 'results-info'})
     nbr_result = int(r.get('data-mw-num-results-total'))
     for interest in soup.find_all('div', {'class': 'mw-search-result-heading'}):
@@ -51,7 +51,7 @@ def get_section_titles(page : str) -> list:
     section_title = []
     scraped_url = wikipedia.page(page, auto_suggest = False).url
     html_text = requests.get(scraped_url).text
-    soup = BeautifulSoup(html_text, 'lxml')
+    soup = BeautifulSoup(html_text, features='lxml')
     r = soup.find_all('h2') + soup.find_all('h3') + soup.find_all('h4')
     for i in r:
         if i.find('span', {'class' : 'mw-headline'}) is not None:
@@ -97,7 +97,7 @@ def corpus_selection(word_keys: str, number_of_results: int, key_for_section: st
             corpus.append(proper_article)
         else:
             left_list.append(proper_article)  # Put the rest of the articles in a list
-    logger.info(f'title has search key in  {len(corpus)}')
+    logger.info(f'title has search key in  {len(corpus)} results')
     for left_article in tqdm(left_list):
         sec_tit = []
         try:
@@ -217,7 +217,7 @@ def add_pageinfo(df,urls):
 
     for i in tqdm(urls):
         source = requests.get(i)
-        soup = BeautifulSoup(source.text, 'lxml')
+        soup = BeautifulSoup(source.text, features='lxml')
         alltables = soup.findAll('table', {"class": "wikitable mw-page-info"})
         tableau_html_liste = pd.read_html(str(alltables))  # We get it as a list
         df_pageinfo2 = pd.DataFrame(tableau_html_liste[2])  # And make it a df
