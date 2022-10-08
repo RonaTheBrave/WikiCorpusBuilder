@@ -85,4 +85,4 @@ The corresponding cells need to be run once the corpus has been charged. You get
 
 # Acknowledgements
 
-This code is the product of the talented LPI students: Ariane Augustoni, Louise Jouveshomme and Matthieu Collet. They based their work on the groundwork o Leo Blondel and	Jean-Marc Sevin. The code was later improved by Roy Amit. All was done under the supervision and reseach design of Omer Benjakob and Rona Aviram. 
+This code is the product of the talented LPI students: Ariane Augustoni, Louise Jouveshomme and Matthieu Collet. They based their work on the work of Leo Blondel and Jean-Marc Sevin. The code was later improved by Roy Amit. All was done under the supervision and reseach design of Omer Benjakob and Rona Aviram. 
