@@ -1,5 +1,6 @@
 # Project Description
-This tool is a part of a [broader project](https://projects.learningplanetinstitute.org/projects/nnEVGw73/des) of using wikipedia to analyze contemporary history of science.
+
+This tool is a part of a broader project of using wikipedia to analyze contemporary history of science.
 
 Our code generates a group of wikipedia article ("corpus") based on a Term Of Interest (TOI) of the user.
 
