@@ -1,6 +1,6 @@
 # Project Description
 
-This tool is a part of a broader project of using wikipedia to analyze contemporary history of science.
+This tool is a part of a broader project* of using wikipedia to analyze contemporary history of science.
 
 Our code generates a group of wikipedia article ("corpus") based on a Term Of Interest (TOI) of the user.
 
@@ -9,6 +9,10 @@ Our code generates a group of wikipedia article ("corpus") based on a Term Of In
 
 The output is dataframe containing all the selected wikipedia articles and their data
 The code also generates some plots of the data
+
+*Published works:
+O. Benjakob# and R. Aviram#. A clockwork Wikipedia: from a broad perspective to a case study. Journal of Biological Rhythms, 2018
+O. Benjakob#, R. Aviram#, J. Sobel#. Citation needed? Wikipedia and the COVID-19 pandemic. GigaScience, 2022
 
 ## How are articles selected ?
 
